@@ -22,7 +22,8 @@ logging_config = config["logging"]
 logging.config.dictConfig(logging_config)
 log = logging.getLogger('collector')
 
-connection = pika.BlockingConnection(pika.ConnectionParameters(host=amqp_config["host"]))
+credentials = pika.PlainCredentials(amqp_config["user"], amqp_config["password"])
+connection = pika.BlockingConnection(pika.ConnectionParameters(host=amqp_config["host"], credentials=credentials))
 channel = connection.channel()
 
 channel.exchange_declare(exchange='amq.topic', type='topic', durable=True)
