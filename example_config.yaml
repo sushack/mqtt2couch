@@ -1,0 +1,10 @@
+amqp:
+  host: rabbitmq_host
+  user: guest
+  password: guest
+  routing_key: .oxflood.#
+cloudant:
+  user: USER
+  password: PASSWORD
+  url: CLOUDANT_URL
+  db: floodnet
